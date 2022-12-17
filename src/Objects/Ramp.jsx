@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 export function Ramp() {
-  // Get the geometry from the GLTF
+  // Get the geometry from the GLTF file
   const result = useLoader(GLTFLoader, process.env.PUBLIC_URL + "/models/ramp.glb");
 
   const geometry = result.scene.children[0].geometry;
