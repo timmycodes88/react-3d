@@ -7,7 +7,7 @@ import { useControls } from "../utils/hooks/useControls"
 import { useWheels } from "../utils/hooks/useWheels"
 import { WheelDebug } from "../WheelDebug"
 
-export default function Car({ thirdPerson }) {
+export default function Car({ thirdPerson, setCameraPosition }) {
   let result = useLoader(
     GLTFLoader,
     process.env.PUBLIC_URL + "/models/car.glb"
@@ -41,7 +41,7 @@ export default function Car({ thirdPerson }) {
     useRef(null)
   )
 
-  useControls(vehicleApi, chassisApi)
+  useControls(vehicleApi, chassisApi, setCameraPosition, thirdPerson)
 
   useFrame(state => {
     if (!thirdPerson) return

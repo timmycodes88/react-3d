@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react"
 
-export const useControls = (vehicleApi, chassisApi) => {
+export const useControls = (
+  vehicleApi,
+  chassisApi,
+  setCameraPosition,
+  thirdPerson
+) => {
   let [controls, setControls] = useState({})
 
   useEffect(() => {
@@ -62,6 +67,8 @@ export const useControls = (vehicleApi, chassisApi) => {
       chassisApi.velocity.set(0, 0, 0)
       chassisApi.angularVelocity.set(0, 0, 0)
       chassisApi.rotation.set(0, 0, 0)
+      if (thirdPerson) return
+      setCameraPosition([-6, 3.9, 6.21 + Math.random() * 0.01])
     }
   }, [controls, vehicleApi, chassisApi])
 

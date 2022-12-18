@@ -41,7 +41,7 @@ export default function Scene() {
       <PerspectiveCamera makeDefault position={cameraPosition} fov={40} />
       {!thirdPerson && <OrbitControls target={[-2.64, -0.71, 0.03]} />}
 
-      <Car thirdPerson={thirdPerson} />
+      <Car thirdPerson={thirdPerson} setCameraPosition={setCameraPosition} />
       <Track />
       <Ground />
 
